@@ -7,18 +7,25 @@ namespace Topic_7
         static void Main(string[] args)
         {
             string input;
-            int inputNum, listSum, listAverage;
+            int inputNum, listSum, listAverage, listMin, listMax;
             int listLength = 25;
             int[] list = new int[listLength];
             Random generator = new Random();
 
-           for (int listNum = 0; listNum < list.Length;)
+            Console.WriteLine("Before we begin what should be the lowest and highest possible number on the list?");
+            Console.WriteLine("List Minimum: ");
+            listMin = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("List Maximum: ");
+            listMax = Convert.ToInt32(Console.ReadLine());     
+
+            for (int listNum = 0; listNum < list.Length;)
             {
-                list[listNum] = generator.Next(10, 21);
+                list[listNum] = generator.Next(listMin, listMax);
                 listNum++;
             }
 
-           while (true)
+
+            while (true)
             {             
                 Console.WriteLine("1 - Sort the list");
                 Console.WriteLine("2 - Make a new list of random numbers");
@@ -28,7 +35,8 @@ namespace Topic_7
                 Console.WriteLine("6 - Print the largest value");
                 Console.WriteLine("7 - Print the smallest value");
                 Console.WriteLine("8 - Get the average of the numbers in the list");
-                Console.WriteLine("9 - Quit");
+                Console.WriteLine("9 - Make a new list of random numbers with a new minimum and maximum");
+                Console.WriteLine("10 - Quit");
                 Console.WriteLine();
                 input = Console.ReadLine();
                 Console.WriteLine();
@@ -50,7 +58,7 @@ namespace Topic_7
                     {                  
                         for (int listNum = 0; listNum < list.Length;)
                         {
-                            list[listNum] = generator.Next(10, 21);
+                            list[listNum] = generator.Next(listMin, listMax);
                             listNum++;
                         }
                         foreach (int i in list)
@@ -105,8 +113,29 @@ namespace Topic_7
                         Console.WriteLine(listAverage);
                         Console.WriteLine();
                         Console.WriteLine();
+                        Thread.Sleep(250);
                     }
                     else if (inputNum == 9)
+                    {
+                        Console.WriteLine("List Minimum: ");
+                        listMin = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("List Maximum: ");
+                        listMax = Convert.ToInt32(Console.ReadLine());
+                      
+                        for (int listNum = 0; listNum < list.Length;)
+                        {
+                            list[listNum] = generator.Next(listMin, listMax);
+                            listNum++;
+                        }
+                        foreach (int i in list)
+                        {
+                            Console.Write(i + " ");
+                        }
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Thread.Sleep(250);
+                    }
+                    else if (inputNum == 10)
                     {
                         break;
                     }
