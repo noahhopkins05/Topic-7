@@ -9,7 +9,7 @@ namespace Topic_7
         static void Main(string[] args)
         {
             string input;
-            int inputNum, listSum, listAverage, listMin, listMax, numSearch, removeNum, addNum;
+            int inputNum, listSum, listAverage, listMin, listMax, numSearch, removeNum, addNum, numCount;
             int listLength = 25;
             List<int> numbers = new List<int>();
             Random generator = new Random();
@@ -118,6 +118,8 @@ namespace Topic_7
                         Thread.Sleep(250);
                         Console.WriteLine("Enter number:");
                         numSearch = Convert.ToInt32(Console.ReadLine());
+                        numCount = numbers.Count(x => x == numSearch);                       
+                        Console.WriteLine("The number " + numSearch + " was found " + numCount + " times.");
                         Console.WriteLine();
                         Console.WriteLine();
 
